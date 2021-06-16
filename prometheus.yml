@@ -1,0 +1,9 @@
+#Archivo de configuración de promtheus
+scrape_configs:
+  #Nombre del trabajo que configuramos, puede ser el que quieras
+  - job_name: cadvisor
+  #Cada cuantos segundos obtendra los datos de cAdvisor y nodeExporter
+    scrape_interval: 5s
+    static_configs:
+      #Los contenedores de donde Prometheus obtendrá los datos(cAdvisxor Nodeexporter)
+    - targets: ['cadvisor:8080', 'node-exporter:9100']
